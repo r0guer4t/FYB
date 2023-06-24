@@ -1,0 +1,65 @@
+13:41:22 **** Incremental Build of configuration Release for project boardtest ****
+make all 
+Building file: ../i2cfuzzer.c
+Invoking: GNU Arm Cross C Compiler
+arm-linux-gnueabihf-gcc -mcpu=cortex-a9 -marm -mfloat-abi=hard -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g -I/usr/include -I/usr/bin -std=gnu11 -MMD -MP -MF"i2cfuzzer.d" -MT"i2cfuzzer.o" -c -o "i2cfuzzer.o" "../i2cfuzzer.c"
+../i2cfuzzer.c: In function ‘main’:
+../i2cfuzzer.c:15:22: warning: initialization of ‘int **’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   15 |  int **PIC_ADDRESS = *ADDRESS_START;
+      |                      ^
+../i2cfuzzer.c:30:15: warning: passing argument 1 of ‘ioctl’ makes integer from pointer without a cast [-Wint-conversion]
+   30 |     if (ioctl(file, PIC_ADDRESS) < 0)
+      |               ^~~~
+      |               |
+      |               FILE *
+In file included from ../i2cfuzzer.c:6:
+/usr/arm-linux-gnueabihf/include/sys/ioctl.h:41:23: note: expected ‘int’ but argument is of type ‘FILE *’
+   41 | extern int ioctl (int __fd, unsigned long int __request, ...) __THROW;
+      |                   ~~~~^~~~
+../i2cfuzzer.c:30:21: warning: passing argument 2 of ‘ioctl’ makes integer from pointer without a cast [-Wint-conversion]
+   30 |     if (ioctl(file, PIC_ADDRESS) < 0)
+      |                     ^~~~~~~~~~~
+      |                     |
+      |                     int **
+In file included from ../i2cfuzzer.c:6:
+/usr/arm-linux-gnueabihf/include/sys/ioctl.h:41:47: note: expected ‘long unsigned int’ but argument is of type ‘int **’
+   41 | extern int ioctl (int __fd, unsigned long int __request, ...) __THROW;
+      |                             ~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../i2cfuzzer.c:39:15: warning: passing argument 1 of ‘write’ makes integer from pointer without a cast [-Wint-conversion]
+   39 |     if (write(file, buf, 1) != 1)
+      |               ^~~~
+      |               |
+      |               FILE *
+In file included from ../i2cfuzzer.c:1:
+/usr/arm-linux-gnueabihf/include/unistd.h:366:27: note: expected ‘int’ but argument is of type ‘FILE *’
+  366 | extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+      |                       ~~~~^~~~
+../i2cfuzzer.c:46:14: warning: passing argument 1 of ‘read’ makes integer from pointer without a cast [-Wint-conversion]
+   46 |     if (read(file,buf,1) != 1)
+      |              ^~~~
+      |              |
+      |              FILE *
+In file included from ../i2cfuzzer.c:1:
+/usr/arm-linux-gnueabihf/include/unistd.h:360:26: note: expected ‘int’ but argument is of type ‘FILE *’
+  360 | extern ssize_t read (int __fd, void *__buf, size_t __nbytes) __wur;
+      |                      ~~~~^~~~
+Finished building: ../i2cfuzzer.c
+ 
+Building target: boardtest.elf
+Invoking: GNU Arm Cross C Linker
+arm-linux-gnueabihf-gcc -mcpu=cortex-a9 -marm -mfloat-abi=hard -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g -Xlinker --gc-sections -Wl,-Map,"boardtest.map" -o "boardtest.elf" ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./i2cfuzzer.o   
+Finished building target: boardtest.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-linux-gnueabihf-objcopy -O ihex "boardtest.elf"  "boardtest.hex"
+Finished building: boardtest.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-linux-gnueabihf-size --format=berkeley "boardtest.elf"
+   text	   data	    bss	    dec	    hex	filename
+   1689	    336	      4	   2029	    7ed	boardtest.elf
+Finished building: boardtest.siz
+ 
+
+13:41:22 Build Finished. 0 errors, 5 warnings. (took 515ms)
+

@@ -1,0 +1,11 @@
+23:35:54 **** Build of configuration Debug for project test7 ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "test7.elf"
+   text	   data	    bss	    dec	    hex	filename
+  16054	   2416	    260	  18730	   492a	test7.elf
+Finished building: test7.siz
+ 
+
+23:35:54 Build Finished. 0 errors, 0 warnings. (took 731ms)
+

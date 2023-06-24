@@ -1,0 +1,73 @@
+13:31:23 **** Incremental Build of configuration Debug for project boardtest2 ****
+make all 
+Building file: ../main.c
+Invoking: GNU Arm Cross C Compiler
+arm-linux-gnueabihf-gcc -mcpu=cortex-a9 -marm -mlittle-endian -mfloat-abi=hard -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g3 -std=gnu11 -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function ‘reset_fpga’:
+../main.c:2841:2: warning: implicit declaration of function ‘set_Hardware_version’; did you mean ‘get_Hardware_version’? [-Wimplicit-function-declaration]
+ 2841 |  set_Hardware_version(0x80000000);
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  get_Hardware_version
+../main.c: In function ‘set_pic_iic’:
+../main.c:5029:15: warning: implicit declaration of function ‘get_pic_iic’; did you mean ‘set_pic_iic’? [-Wimplicit-function-declaration]
+ 5029 |         ret = get_pic_iic();
+      |               ^~~~~~~~~~~
+      |               set_pic_iic
+../main.c: In function ‘set_pic_iic_flash_addr_pointer’:
+../main.c:5137:6: warning: implicit declaration of function ‘saveSearchFailedFlagInfo’ [-Wimplicit-function-declaration]
+ 5137 |      saveSearchFailedFlagInfo();
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~
+../main.c:5141:7: warning: implicit declaration of function ‘processTEST’ [-Wimplicit-function-declaration]
+ 5141 |       processTEST();
+      |       ^~~~~~~~~~~
+In file included from ../main.c:29:
+../main.c: At top level:
+../driver-bitmain.h:218:41: warning: initialization of ‘unsigned char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  218 | #define BITMAIN_MAX_CHAIN_NUM           16
+      |                                         ^~
+../main.c:5310:25: note: in expansion of macro ‘BITMAIN_MAX_CHAIN_NUM’
+ 5310 |  unsigned char *chain = BITMAIN_MAX_CHAIN_NUM;
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+../main.c: In function ‘AT24C02_write_bytes’:
+../main.c:5624:3: warning: implicit declaration of function ‘AT24C02_write_one_byte’; did you mean ‘AT24C02_write_bytes’? [-Wimplicit-function-declaration]
+ 5624 |   AT24C02_write_one_byte(address+i, *(buf + i), which_iic);
+      |   ^~~~~~~~~~~~~~~~~~~~~~
+      |   AT24C02_write_bytes
+../main.c: In function ‘AT24C02_read_bytes’:
+../main.c:5642:17: warning: implicit declaration of function ‘AT24C02_read_one_byte’; did you mean ‘AT24C02_read_bytes’? [-Wimplicit-function-declaration]
+ 5642 |   *(buf + i) =  AT24C02_read_one_byte(address+i, which_iic);
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+      |                 AT24C02_read_bytes
+../main.c: In function ‘set_voltage_T9_18_into_PIC’:
+../main.c:5843:3: warning: implicit declaration of function ‘set_Voltage_S9_plus_plus_BM1387_54’ [-Wimplicit-function-declaration]
+ 5843 |   set_Voltage_S9_plus_plus_BM1387_54(new_T9_PLUS_chainIndex,voltage);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.c: In function ‘dsPIC33EP16GS202_update_pic_app_program’:
+../main.c:6267:8: warning: implicit declaration of function ‘dsPIC33EP16GS202_reset_pic’; did you mean ‘dsPIC33EP16GS202_send_data_to_pic’? [-Wimplicit-function-declaration]
+ 6267 |  ret = dsPIC33EP16GS202_reset_pic(which_iic);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |        dsPIC33EP16GS202_send_data_to_pic
+../main.c: In function ‘main’:
+../main.c:7480:26: warning: unsigned conversion from ‘int’ to ‘unsigned char’ changes value from ‘730’ to ‘218’ [-Woverflow]
+ 7480 |  unsigned char vol_pic = 730;
+      |                          ^~~
+Finished building: ../main.c
+ 
+Building target: bitmainhack
+Invoking: GNU Arm Cross C Linker
+arm-linux-gnueabihf-gcc -mcpu=cortex-a9 -marm -mlittle-endian -mfloat-abi=hard -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g3 -Xlinker --gc-sections -Wl,-Map,"bitmainhack.map" -o "bitmainhack" ./main.o   
+Finished building target: bitmainhack
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-linux-gnueabihf-objcopy -O ihex "bitmainhack"  "bitmainhack.hex"
+Finished building: bitmainhack.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-linux-gnueabihf-size --format=berkeley "bitmainhack"
+   text	   data	    bss	    dec	    hex	filename
+   8543	    324	      8	   8875	   22ab	bitmainhack
+Finished building: bitmainhack.siz
+ 
+
+13:31:24 Build Finished. 0 errors, 10 warnings. (took 819ms)
+

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;boardtest2/driver-bitmain.c&apos; to &apos;dri.c&apos;" description="Rename resource &apos;driver-bitmain.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="driver-bitmain.c" name="dri.c" stamp="1687348340256" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;boardtest2/dri.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;dri.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="dri.c" name="main.c" stamp="1687348964737" updateReferences="true"/>
+</session>

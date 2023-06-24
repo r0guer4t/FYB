@@ -1,0 +1,3 @@
+#define T9_18
+#define ENABLE_RESTORE_PIC_APP
+#define ENABLE_CHECK_PIC_FLASH_ADDR

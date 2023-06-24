@@ -1,0 +1,11 @@
+01:36:10 **** Incremental Build of configuration Debug for project test5 ****
+make all 
+Building file: ../src/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-linux-gnueabi-gcc -mcpu=cortex-a9 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -g3 -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+/bin/sh: 1: arm-none-linux-gnueabi-gcc: not found
+make: *** [src/subdir.mk:20: src/main.o] Error 127
+"make all" terminated with exit code 2. Build might be incomplete.
+
+01:36:10 Build Failed. 1 errors, 0 warnings. (took 474ms)
+
